@@ -9,10 +9,6 @@
 
         <jta-data-source>jdbc/AccountsDS</jta-data-source>
 
-        <class>org.ekipaenajst.entitete.Avto</class>
-        <class>org.ekipaenajst.entitete.Naslov</class>
-        <class>org.ekipaenajst.entitete.Uporabnik</class>
-
 
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
