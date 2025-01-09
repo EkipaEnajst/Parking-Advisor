@@ -79,6 +79,16 @@ public class SortLogic implements Serializable {
                 double c = pr1 - pr2;
                 return c > 0 ? 1 : (c < 0 ? -1 : 0);
             }
+            case "optimiziraj":
+            {
+                int t = LocalTime.now().getHour();
+                double pr1 = (p1.getZacetekDneva() <= t && p1.getKonecDneva() > t) ? p1.getCenaDefault() : p1.getCenaNocna();
+                double pr2 = (p2.getZacetekDneva() <= t && p2.getKonecDneva() > t) ? p2.getCenaDefault() : p2.getCenaNocna();
+                long d1 = p1.getOddaljenost().getRazdaljaMetri();
+                long d2 = p2.getOddaljenost().getRazdaljaMetri();
+                double c = 1/(pr1*d1) - 1/(pr2*d2);
+                return c > 0 ? 1 : (c < 0 ? -1 : 0);
+            }
             default:
                 return 0;
         }
