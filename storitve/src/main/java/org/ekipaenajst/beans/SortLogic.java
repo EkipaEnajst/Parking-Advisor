@@ -41,7 +41,10 @@ public class SortLogic implements Serializable {
 
         Map<String,String> env = System.getenv();
 
-        mapURL = "http://34.154.46.160:8080";//env.get("MAP_URL");
+        String mapHost=env.get("MAPS_DEPLOYMENT_SERVICE_SERVICE_HOST");
+        String mapPort = "8080";
+
+        mapURL = String.format("http://%s:%s",mapHost,mapPort);//"http://34.154.46.160:8080";
     }
 
     public int superAwesomesauceComparator(Parkirisce p1, Parkirisce p2, String param) {
@@ -101,7 +104,7 @@ public class SortLogic implements Serializable {
                 double pr2 = (p2.getZacetekDneva() <= t && p2.getKonecDneva() > t) ? p2.getCenaDefault() : p2.getCenaNocna();
                 long d1 = p1.getOddaljenost().getRazdaljaMetri();
                 long d2 = p2.getOddaljenost().getRazdaljaMetri();
-                double c = 1/(pr1*d1) - 1/(pr2*d2);
+                double c = (pr1*d1) - (pr2*d2);
                 return c > 0 ? 1 : (c < 0 ? -1 : 0);
             }
             default:
