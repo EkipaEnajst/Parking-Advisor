@@ -1,6 +1,5 @@
 package org.ekipaenajst.entitete;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 
